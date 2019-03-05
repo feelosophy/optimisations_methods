@@ -31,7 +31,7 @@ console.log(`y0 = ${y0}; z0 = ${z0}`);
     }
     if (Math.abs(ak - bk) <= eps) {
         const x = (ak+bk)/2;
-        console.log(`x: [${ak}; ${bk}]; x=${x}; f(x*)=${f(x)}`);
+        console.log(`x∈[${ak}; ${bk}]; x=${x}; f(x*)=${f(x)}`);
     } else {
         quickMath(yk, zk, ak, bk, k+1);
     }
