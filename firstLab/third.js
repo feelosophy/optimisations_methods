@@ -22,7 +22,6 @@ const findMinN = (L, l) => {
     return N+1;
 };
 
-
 // Начальные значения
 const a0 = -1;
 const b0 = 3;
@@ -34,7 +33,7 @@ const N = findMinN(L0, l);
 const y0 = a0 + (b0-a0)*(F(N-2)/F(N));
 const z0 = a0 + (b0-a0)*(F(N-1)/F(N));
 
-console.log(`Начальные значения: L0=${L0}, N=${N}, y0=${y0}, z0=${z0}`);
+console.log(`Начальные значения: L0=${L0.toFixed(2)}, N=${N}, y0=${y0.toFixed(2)}, z0=${z0.toFixed(2)}`);
 
 
 (function quickMath(y,z,a,b,k) {
@@ -42,8 +41,8 @@ console.log(`Начальные значения: L0=${L0}, N=${N}, y0=${y0}, z0
     let bk;
     let yk;
     let zk;
-    console.log(`Get params: y=${y}, z=${z}, a=${a}, b=${b}, k=${k}`);
-    console.log(`y=${y}; f(y) = ${f(y)}; z=${z}; f(z) = ${f(z)}`);
+    console.log(`Get params: y=${y.toFixed(2)}, z=${z.toFixed(2)}, a=${a.toFixed(2)}, b=${b.toFixed(2)}, k=${k}`);
+    console.log(`y=${y.toFixed(2)}; f(y) = ${f(y).toFixed(2)}; z=${z.toFixed(2)}; f(z) = ${f(z).toFixed(2)}`);
     if (f(y) <= f(z)) {
         ak = a;
         bk = z;
@@ -56,7 +55,7 @@ console.log(`Начальные значения: L0=${L0}, N=${N}, y0=${y0}, z0
         zk = ak + (bk-ak)*(F(N-k-2)/F(N-k-1));
     }
 
-    console.log(`ak=${ak}, bk=${bk}, yk=${yk}, zk=${zk}`);
+    console.log(`ak=${ak.toFixed(2)}, bk=${bk.toFixed(2)}, yk=${yk.toFixed(2)}, zk=${zk.toFixed(2)}`);
 
     let Y;
     let Z;
@@ -65,7 +64,7 @@ console.log(`Начальные значения: L0=${L0}, N=${N}, y0=${y0}, z0
     if (k === N-3) {
         Y = zk;
         Z = Y + eps;
-        console.log(`f(Y) = ${f(Y)}; f(Z) = ${f(Z)}`);
+        console.log(`f(Y) = ${f(Y).toFixed(2)}; f(Z) = ${f(Z).toFixed(2)}`);
         if (f(Y) <= f(Z)) {
             A = ak;
             B = zk;
@@ -73,7 +72,7 @@ console.log(`Начальные значения: L0=${L0}, N=${N}, y0=${y0}, z0
             A = yk;
             B = bk;
         }
-        console.log(`Result: x∈[${A};${B}]; x*≈${(A+B)/2}; f(x*)=${f((A+B)/2)}`);
+        console.log(`Result: x∈[${A.toFixed(2)};${B.toFixed(2)}]; x*≈${((A+B)/2).toFixed(2)}; f(x*)=${f((A+B)/2).toFixed(2)}`);
     } else {
         quickMath(yk, zk, ak, bk, k+1);
     }

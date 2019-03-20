@@ -12,23 +12,24 @@ const eps = 0.3;
     let y = a + L/4;
     let z = b - L/4;
 
+    console.log(`x = ${x}; y = ${y}; z = ${z}; k = ${k}`);
+
     let bk;
     let ak;
     let xk;
     let Lk;
+    console.log(`f(y) = ${f(y)}; f(x) = ${f(x)}`);
     if (f(y) < f(x)) {
-        console.log(`${f(y)} < ${f(x)}`);
         bk = x;
         ak = a;
         xk = y;
     } else {
+        console.log(`f(z) = ${f(z)}; f(x) = ${f(x)}`);
         if (f(z) < f(x)) {
-            console.log(`${f(z)} < ${f(x)}`);
             ak = x;
             bk = b;
             xk = z;
         } else {
-            console.log(`${f(z)} > ${f(x)}`);
             ak = y;
             bk = z;
             xk = x;
@@ -36,9 +37,8 @@ const eps = 0.3;
     }
 
     Lk = Math.abs(bk-ak);
-    console.log(bk, ak, xk, Lk);
     if (Lk <= eps) {
-        console.log(`x*=${xk}, f(x*)=${f(xk)}, k+1=${k+1}`);
+        console.log(`x* = ${xk}, f(x*)= ${f(xk)}, k+1 = ${k+1}`);
         return xk;
     } else {
         quickMath(ak, bk, k+1);
